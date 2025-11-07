@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 554.91 454.13">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #231f20;
+        font-family: BradleyHandITCTT-Bold, 'Bradley Hand';
+        font-size: 48px;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        fill: #ef9528;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: #419fd8;
+      }
+
+      .cls-4 {
+        fill: #f3b71a;
+      }
+
+      .cls-5 {
+        fill: #f2ea26;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="cls-3" x=".5" y=".5" width="553.91" height="453.13"/>
+    <polygon class="cls-2" points="416.84 394.88 283.49 339.2 162.02 417.49 173.76 273.46 61.77 182.12 202.39 148.79 254.64 14.05 329.8 137.48 474.08 145.55 379.92 255.17 416.84 394.88"/>
+    <polygon class="cls-5" points="466.84 284.72 333.24 312.48 280.36 438.27 212.68 319.78 76.7 308.36 168.47 207.38 137.31 74.53 261.71 130.61 378.43 59.92 363.54 195.56 466.84 284.72"/>
+    <ellipse class="cls-4" cx="267.93" cy="230.04" rx="117.97" ry="103.91"/>
+    <rect class="cls-5" x="115.44" y="118.32" width="4.69" height="29.69" transform="translate(-56.43 168.58) rotate(-60)"/>
+    <rect class="cls-5" x="321.75" y="37.68" width="4.69" height="29.69" transform="translate(17.46 -64.82) rotate(11.73)"/>
+    <rect class="cls-5" x="193.58" y="50.42" width="4.69" height="29.69" transform="translate(-8.41 95.14) rotate(-26.74)"/>
+    <rect class="cls-5" x="406.06" y="96.44" width="4.69" height="29.69" transform="translate(217.66 -266.6) rotate(47.97)"/>
+    <rect class="cls-5" x="450.59" y="213.74" width="4.69" height="29.69" transform="translate(224.35 681.53) rotate(-90)"/>
+    <rect class="cls-5" x="129.22" y="333.06" width="4.69" height="29.69" transform="translate(-91.53 645.51) rotate(-122.43)"/>
+    <rect class="cls-5" x="227.94" y="384.46" width="4.69" height="29.69" transform="translate(125.4 -49.55) rotate(16.82)"/>
+    <rect class="cls-5" x="340.44" y="378.59" width="4.69" height="29.69" transform="translate(-157.52 245.17) rotate(-32.43)"/>
+    <rect class="cls-5" x="434.07" y="319.1" width="4.69" height="29.69" transform="translate(953.56 148.09) rotate(122.81)"/>
+    <rect class="cls-5" x="87.13" y="234.25" width="4.69" height="29.69" transform="translate(-147.51 366.96) rotate(-96.69)"/>
+  </g>
+  <text class="cls-1" transform="translate(452.91 434.59)"><tspan x="0" y="0">AW</tspan></text>
+</svg>

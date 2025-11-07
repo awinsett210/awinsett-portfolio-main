@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 9</title>
+    <style>
+        body {
+            background-color: rgb(59, 88, 59);
+            color: white;
+            margin: 20px;
+        }
+
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 25%;
+            background-color: whitesmoke;
+            color: black;
+        }
+
+        th,
+        td {
+            border: 1px solid #69c79d;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #92daa7;
+        }
+
+        .category-input {
+            width: 95%;
+        }
+
+        .result-row {
+            font-weight: bold;
+        }
+
+        button {
+            font-weight: bold;
+            font-size: larger;
+            margin-top: 10px;
+            background-color: #6dd7e5;
+        }
+
+        .over {
+            background-color: rgb(238, 131, 131);
+        }
+
+        .low {
+            background-color: rgb(107, 237, 107);
+        }
+
+        .on-budget {
+            background-color: rgb(249, 249, 134);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Monthly Expense Calculator</h1>
+
+    <div class="expense-item">
+        <label for="income">Monthly Income:</label>
+        <input type="number" id="income" placeholder="0">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Allowed</th>
+                <th>Spent</th>
+                <th>Within Budget</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Housing</td>
+                <td>40%</td>
+                <td><input type="number" id="housing" class="category-input" placeholder="0"></td>
+                <td class="status" id="housingStatus"></td>
+            </tr>
+            <tr>
+                <td>Groceries</td>
+                <td>20%</td>
+                <td><input type="number" id="groceries" class="category-input" placeholder="0"></td>
+                <td class="status" id="groceriesStatus"></td>
+            </tr>
+            <tr>
+                <td>Entertainment</td>
+                <td>10%</td>
+                <td><input type="number" id="entertainment" class="category-input" placeholder="0"></td>
+                <td class="status" id="entertainmentStatus"></td>
+            </tr>
+            <tr>
+                <td>Transportation</td>
+                <td>20%</td>
+                <td><input type="number" id="transportation" class="category-input" placeholder="0"></td>
+                <td class="status" id="transportationStatus"></td>
+            </tr>
+            <tr>
+                <td>Debt</td>
+                <td>30%</td>
+                <td><input type="number" id="debt" class="category-input" placeholder="0"></td>
+                <td class="status" id="debtStatus"></td>
+            </tr>
+            <tr>
+                <td>Extra</td>
+                <td>10%</td>
+                <td><input type="number" id="extra" class="category-input" placeholder="0"></td>
+                <td class="status" id="extraStatus"></td>
+            </tr>
+            <tr>
+                <td>Electric</td>
+                <td>15%</td>
+                <td><input type="number" id="electric" class="category-input" placeholder="0"></td>
+                <td class="status" id="electricStatus"></td>
+            </tr>
+            <tr>
+                <td>Water/Sewer</td>
+                <td>15%</td>
+                <td><input type="number" id="waterSewer" class="category-input" placeholder="0"></td>
+                <td class="status" id="waterSewerStatus"></td>
+            </tr>
+    </table>
+
+    <button onclick="calculateTotal()">Calculate</button>
+
+    <h2>Total Expenses: <span id="total">0</span></h2>
+    <h2>Leftover Amount: <span id="leftover">0</span></h2>
+
+    <script>
+        const percentages = {
+            housing: 0.40,
+            groceries: 0.20,
+            entertainment: 0.10,
+            transportation: 0.20,
+            debt: 0.30,
+            extra: 0.10,
+            electric: 0.15,
+            waterSewer: 0.15
+        };
+
+        function calculateTotal() {
+            const income = parseFloat(document.getElementById("income").value) || 0;
+
+            const housing = parseFloat(document.getElementById("housing").value) || 0;
+            const groceries = parseFloat(document.getElementById("groceries").value) || 0;
+            const entertainment = parseFloat(document.getElementById("entertainment").value) || 0;
+            const transportation = parseFloat(document.getElementById("transportation").value) || 0;
+            const debt = parseFloat(document.getElementById("debt").value) || 0;
+            const extra = parseFloat(document.getElementById("extra").value) || 0;
+            const electric = parseFloat(document.getElementById("electric").value) || 0;
+            const waterSewer = parseFloat(document.getElementById("waterSewer").value) || 0;
+
+            const total = housing + groceries + entertainment + transportation + debt + extra + electric + waterSewer;
+
+            document.getElementById("total").textContent = total.toFixed(2);
+            const leftover = income - total;
+            document.getElementById("leftover").textContent = leftover.toFixed(2);
+
+            updateStatus(housing, groceries, entertainment, transportation, debt, extra, electric, waterSewer, income);
+        }
+
+        function updateStatus(housing, groceries, entertainment, transportation, debt, extra, electric, waterSewer, income) {
+            const categories = [
+                { name: "Housing", amount: housing, percentage: percentages.housing, statusId: "housingStatus" },
+                { name: "Groceries", amount: groceries, percentage: percentages.groceries, statusId: "groceriesStatus" },
+                { name: "Entertainment", amount: entertainment, percentage: percentages.entertainment, statusId: "entertainmentStatus" },
+                { name: "Transportation", amount: transportation, percentage: percentages.transportation, statusId: "transportationStatus" },
+                { name: "Debt", amount: debt, percentage: percentages.debt, statusId: "debtStatus" },
+                { name: "Extra", amount: extra, percentage: percentages.extra, statusId: "extraStatus" },
+                { name: "Electric", amount: electric, percentage: percentages.electric, statusId: "electricStatus" },
+                { name: "Water/Sewer", amount: extra, percentage: percentages.waterSewer, statusId: "waterSewerStatus" }
+            ];
+
+            categories.forEach(category => {
+                const maxAllowed = category.percentage * income;
+                let status = '';
+                let className = '';
+
+                if (category.amount > maxAllowed) {
+                    status = 'Over';
+                    className = 'over';
+                } else if (category.amount < maxAllowed) {
+                    status = 'Low';
+                    className = 'low';
+                } else {
+                    status = 'On Budget';
+                    className = 'on-budget';
+                }
+
+                const statusElement = document.getElementById(category.statusId);
+                statusElement.textContent = status;
+                statusElement.className = className;
+            });
+        }
+    </script>
+
+</body>
+
+</html>
